@@ -4,20 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "scss": "node-sass ./styles/styles.scss ./pages/styles.css",
-    "reload": "reload -d pages -s lesson-1-general-html-structure.html",
-    "open": "reload -d pages -b -s lesson-1-general-html-structure.html",
-    "nodemon": "nodemon -e scss -x \"npm run scss\"",
-    "watch": "concurrently --kill-others \"npm run reload\" \"npm run nodemon\"",
-    "start": "concurrently --kill-others \"npm run open\" \"npm run nodemon\""
+    "start": "gulp"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^3.4.0",
-    "node-sass": "^4.5.3",
-    "nodemon": "^1.11.0",
-    "reload": "^1.1.5"
+    "browser-sync": "^2.18.12",
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-mustache": "^2.3.0",
+    "gulp-prettify": "^0.5.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-watch": "^4.3.11",
+    "mustache": "^2.3.0",
+    "node-dir": "^0.1.17"
   }
 }
