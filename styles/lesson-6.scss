@@ -1,0 +1,21 @@
+.lesson-6 {
+  div {
+    background: rgb(114, 191, 118);
+    display: inline-block;
+    width: 300px;
+    border: 5px solid black;
+    padding: 20px;
+    margin: 10px;
+
+    p {
+      border: 1px solid black;
+      height: 100%;
+      background: rgb(236, 250, 114);
+      padding: 10px;
+    }
+  }
+
+  .border-box {
+    box-sizing: border-box;
+  }
+}

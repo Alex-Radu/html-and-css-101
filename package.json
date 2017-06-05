@@ -1,0 +1,23 @@
+{
+  "name": "html-and-css-101",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scss": "node-sass ./styles/styles.scss ./pages/styles.css",
+    "reload": "reload -d pages -s lesson-1-general-html-structure.html",
+    "open": "reload -d pages -b -s lesson-1-general-html-structure.html",
+    "nodemon": "nodemon -e scss -x \"npm run scss\"",
+    "watch": "concurrently --kill-others \"npm run reload\" \"npm run nodemon\"",
+    "start": "concurrently --kill-others \"npm run open\" \"npm run nodemon\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.4.0",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
+    "reload": "^1.1.5"
+  }
+}
