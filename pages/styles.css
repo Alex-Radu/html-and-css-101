@@ -96,6 +96,26 @@
 .lesson-6 .border-box {
   box-sizing: border-box; }
 
+.lesson-7 div {
+  display: inline-block;
+  margin: 0 auto;
+  width: 100%;
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+@media (min-width: 1300px) {
+  .lesson-7 div {
+    background-image: url("./kitten-stretching.png"); } }
+
+@media (min-width: 500px) and (max-width: 1299px) {
+  .lesson-7 div {
+    background-image: url("./kitten-sitting.png"); } }
+
+@media (max-width: 499px) {
+  .lesson-7 div {
+    background-image: url("./kitten-curled.png"); } }
+
 body {
   margin: 0; }
   body nav {

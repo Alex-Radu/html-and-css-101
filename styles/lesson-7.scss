@@ -1,0 +1,29 @@
+.lesson-7 {
+  div {
+    display: inline-block;
+    margin: 0 auto;
+    width: 100%;
+    height: 600px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  @media (min-width: 1300px) {
+    div {
+      background-image: url('./kitten-stretching.png');
+    }
+  }
+
+  @media (min-width: 500px) and (max-width: 1299px) {
+    div {
+      background-image: url('./kitten-sitting.png');
+    }
+  }
+
+  @media (max-width: 499px) {
+    div {
+      background-image: url('./kitten-curled.png');
+    }
+  }
+}
