@@ -1,0 +1,15 @@
+body {
+  padding: 10px;
+
+  form {
+    legend {
+      margin: 10px 0 5px 0;
+    }
+
+    input:not([type="radio"]):not([type="checkbox"]) {
+      margin: 10px 0;
+      display: block;
+    }
+
+  }
+}
