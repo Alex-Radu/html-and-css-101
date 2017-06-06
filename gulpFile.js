@@ -9,9 +9,8 @@ const dir = require('node-dir');
 function compileTemplate(err, fileContent, fileName, next) {
   gulp.src('./template.mustache')
     .pipe(mustache({
-      lessonNo: fileName.match(/(lesson-\d)/)[0]
-    }, {}, {
-      partial: fileContent
+      lessonNo: fileName.match(/(lesson-\d)/)[0],
+      content: fileContent
     }))
     .pipe(rename(fileName.replace('.mustache', '') + '.html'))
     .pipe(pretify())
