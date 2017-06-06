@@ -2,22 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{{lessonNo}}</title>
+    <title>{{pageTitle}}</title>
     <link rel="stylesheet" type="text/css" href="../styles/styles.css" />
   </head>
-  <body class="{{lessonNo}}">
-    {{{content}}}
+  <body>
     <nav>
-      <a href="/pages/lesson-1-general-html-structure.html">Lesson 1</a>
-      <a href="/pages/lesson-2-examples-of-tags.html">Lesson 2</a>
-      <a href="/pages/lesson-3-block-and-inline-elements.html">Lesson 3</a>
-      <a href="/pages/lesson-4-spacing.html">Lesson 4</a>
-      <a href="/pages/lesson-5-positioning-absolute.html">Lesson 5.1</a>
-      <a href="/pages/lesson-5-positioning-fixed.html">Lesson 5.2</a>
-      <a href="/pages/lesson-6-box-model.html">Lesson 6</a>
-      <a href="/pages/lesson-7-responsiveness.html">Lesson 7</a>
-      <a href="/pages/lesson-8-pseudo-selector.html">Lesson 8</a>
-      <a href="/pages/lesson-9-pseudo-elements.html">Lesson 9</a>
+      <h1>{{pageTitle}}</h1>
+      <ul>
+        {{#navDetails}}
+          <li {{#selected}}class="selected"{{/selected}}><a href="/{{{link}}}">{{title}}</a></li>
+        {{/navDetails}}
+      </ul>
     </nav>
+
+    {{{pageContent}}}
   </body>
 </html>

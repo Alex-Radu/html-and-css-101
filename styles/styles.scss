@@ -7,33 +7,60 @@
 @import "./lesson-8";
 @import "./lesson-9";
 
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
 
   nav {
     position: fixed;
-    width: 150px;
-    right: 20px;
-    top: 20px;
-    border: 1px solid black;
-    padding: 5px 10px;
-    background-color: white;
-    z-index: 99;
+    background: rgb(79, 99, 228);
+    padding: 0 15px;
 
-    a {
-      display: block;
-      font-size: 18px;
-      text-decoration: none;
-      color: black;
-      background-color: white !important;
+    h1 {
+      color: rgb(242, 240, 64);
+      font-weight: normal;
+    }
 
-      &:hover {
-        text-decoration: underline;
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        padding: 0 5px;
+        height: 45px;
+        width: 350px;
+
+        &:not(:last-of-type) {
+          border-bottom: 1px solid rgb(227, 61, 61);
+        }
+
+        &.selected,
+        &:hover {
+          background: rgb(242, 240, 64);
+          cursor: pointer;
+
+          a {
+            color: rgb(227, 61, 61);
+          }
+        }
       }
 
-      & + a {
-        margin-top: 5px;
+      a {
+        color: rgb(242, 240, 64);
+        display: block;
+        font-size: 18px;
+        text-decoration: none;
+        line-height: 45px;
       }
     }
+  }
+
+  div[class*="lesson"] {
+    margin-left: 400px;
+    position: relative;
+    height: 100%;
   }
 }

@@ -23,7 +23,7 @@
     label[for="checkbox2"] {
       position: relative;
 
-      &:before {
+      &::before {
         content: '';
         border: 2px solid rgb(114, 148, 191);
         display: inline-block;
@@ -32,7 +32,7 @@
         margin-right: 8px;
       }
 
-      &:after {
+      &::after {
         content: '';
         display: inline-block;
         width: 12px;

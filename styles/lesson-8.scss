@@ -20,7 +20,7 @@
         background: rgb(236, 250, 114);
       }
 
-      &:first-letter {
+      &::first-letter {
         font-size: 25px;
         color: rgb(250, 128, 114);
       }

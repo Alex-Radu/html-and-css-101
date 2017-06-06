@@ -6,23 +6,49 @@ const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
 const dir = require('node-dir');
 
-function compileTemplate(err, fileContent, fileName, next) {
-  gulp.src('./template.mustache')
-    .pipe(mustache({
-      lessonNo: fileName.match(/(lesson-\d)/)[0],
-      content: fileContent
-    }))
-    .pipe(rename(fileName.replace('.mustache', '') + '.html'))
-    .pipe(pretify())
-    .pipe(gulp.dest('./dest'));
+let templateData = [];
 
-    next();
+function structureTemplateData(err, fileContent, fileName, next) {
+  fileName = fileName.replace('pages/', '').replace('.mustache', '');
+
+  let lessonNoRaw = fileName.match(/lesson(-\d+)+/)[0];
+  let lessonNameRaw = fileName.substring(lessonNoRaw.length + 1);
+  let lessonNo = lessonNoRaw.replace(/-/g, ' ').charAt(0).toUpperCase() + lessonNoRaw.slice(1);
+  let lessonName = lessonNameRaw.replace(/-/g, ' ').charAt(0).toUpperCase() + lessonNameRaw.slice(1);
+
+  templateData.push({
+    pageTitle: lessonNo + ': ' + lessonName,
+    pageContent: fileContent
+  });
+
+  next();
+}
+
+function compileTemplates(err, files) {
+  templateData.forEach(function(page, pageIndex) {
+    let lessonArray = files.map(function(file, fileIndex) {
+      return {
+        link: file.replace('mustache', 'html'),
+        title: templateData[fileIndex].pageTitle,
+        selected: fileIndex === pageIndex
+      }
+    });
+
+    page.navDetails = lessonArray;
+
+    gulp.src('./template.mustache')
+      .pipe(mustache(page))
+      .pipe(rename(lessonArray[pageIndex].link))
+      .pipe(pretify())
+      .pipe(gulp.dest('./dest'));
+  });
 }
 
 gulp.task('templates', function() {
+  templateData = [];
   return dir.readFiles('./pages', {
     match: /.mustache$/
-  }, compileTemplate);
+  }, structureTemplateData, compileTemplates);
 });
 
 gulp.task('css', function() {
@@ -32,18 +58,18 @@ gulp.task('css', function() {
 });
 
 gulp.task('images', function() {
-    return gulp.src('./images/*.png')
-      .pipe(gulp.dest('./dest/images'));
+  return gulp.src('./images/*.png')
+    .pipe(gulp.dest('./dest/images'));
 })
 
 gulp.task('default', ['templates', 'css', 'images'], function() {
 
-    browserSync.init({
-        server: {
-          baseDir: './dest',
-          index: 'pages/lesson-1-general-html-structure.html'
-        }
-    });
+  browserSync.init({
+    server: {
+      baseDir: './dest',
+      index: 'pages/lesson-1-general-html-structure.html'
+    }
+  });
 
-    gulp.watch(['styles/*.scss', 'pages/*.mustache'], ['templates', 'css', 'images']).on('change', browserSync.reload);
+  gulp.watch(['styles/*.scss', 'pages/*.mustache'], ['templates', 'css', 'images']).on('change', browserSync.reload);
 });
