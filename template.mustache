@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>{{pageTitle}}</title>
-    <link rel="stylesheet" type="text/css" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/prism.css" />
   </head>
   <body>
     <nav>
@@ -15,6 +16,14 @@
       </ul>
     </nav>
 
-    {{{pageContent}}}
+    <div class="page-wrapper">
+      <div class="markup-container">
+        <pre><code class="language-markup">{{pageContent}}</code></pre>
+      </div>
+      <div class="render-wrapper">
+        {{{pageContent}}}
+      </div>
+    </div>
+    <script src="../js/prism.js"></script>
   </body>
 </html>

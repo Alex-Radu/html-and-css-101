@@ -15,16 +15,24 @@ html, body {
 
 body {
   nav {
+    box-sizing: border-box;
+    border-right: 2px solid #f92672;
     position: fixed;
-    background: rgb(79, 99, 228);
+    background: #272822;
     padding: 0 15px;
     height: 100%;
     top: 0;
     z-index: 2;
 
+    * {
+      box-sizing: border-box;
+    }
+
     h1 {
-      color: rgb(242, 240, 64);
+      color: #a6e22e;
+      font-size: 18px;
       font-weight: normal;
+      text-align: center;
     }
 
     ul {
@@ -33,37 +41,59 @@ body {
 
       li {
         padding: 0 5px;
-        height: 45px;
-        width: 350px;
-
-        &:not(:last-of-type) {
-          border-bottom: 1px solid rgb(227, 61, 61);
-        }
+        height: 30px;
+        width: 270px;
+        border-bottom: 1px solid transparent;
 
         &.selected,
         &:hover {
-          background: rgb(242, 240, 64);
+          border-color: #a6e22e;
           cursor: pointer;
 
           a {
-            color: rgb(227, 61, 61);
+            color: #f92672;
           }
         }
       }
 
       a {
-        color: rgb(242, 240, 64);
+        color: white;
         display: block;
-        font-size: 18px;
+        font-size: 15px;
         text-decoration: none;
-        line-height: 45px;
+        line-height: 30px;
       }
     }
   }
 
-  div[class*="lesson"] {
-    margin-left: 400px;
-    position: relative;
-    height: 100%;
+  .page-wrapper {
+    display: flex;
+
+    .markup-container {
+      margin-left: 300px;
+      flex: 1 auto;
+      order: 1;
+
+      pre {
+        border-radius: 0;
+        margin-top: 0;
+        display: inline-block !important;
+        width: 500px;
+        max-height: 600px;
+        font-size: 12px;
+      }
+    }
+
+    .render-wrapper {
+      border: 1px solid black;
+      flex: 1 100%;
+      order: 2;
+      padding: 10px;
+
+      div[class*="lesson"] {
+        position: relative;
+        height: 100%;
+      }
+    }
   }
 }

@@ -1,14 +1,14 @@
 .lesson-5 {
   /* Absolute */
+  min-height: 400px;
 
   div[class^="pos-"] {
-    width: 350px;
-    height: 200px;
+    width: 175px;
+    height: 100px;
     border: 2px solid black;
     display: inline-block;
     text-align: center;
-    line-height: 200px;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     position: absolute;
   }
@@ -30,27 +30,35 @@
   }
 
   .pos-center {
-    top: calc(50% - 100px);
-    left: calc(50% - 175px);
+    top: calc(50% - 50px);
+    left: calc(50% - 82px);
+    background-color: rgb(180, 114, 191);
+  }
+
+  .pos-top-left {
+    background-color: rgb(236, 250, 114);
+  }
+
+  .pos-top-right {
+    background-color: rgb(114, 191, 118);
+  }
+
+  .pos-bottom-left {
+    background-color: rgb(250, 128, 114);
+  }
+
+  .pos-bottom-right {
+    background-color: rgb(114, 148, 191);
   }
 
 
   /* Fixed */
-  .fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
+  h2 {
     text-align: center;
-    font-size: 50px;
-    border-bottom: 2px solid black;
-    background: black;
-    color: white;
   }
 
-  .fixed + p {
-    margin-top: 40px;
+  p {
+    text-align: center;
   }
 
   /* Relative */

@@ -9,19 +9,19 @@
     background-repeat: no-repeat;
   }
 
-  @media (min-width: 1730px) {
+  @media (min-width: 1640px) {
     div {
       background-image: url('../images/kitten-stretching.png');
     }
   }
 
-  @media (min-width: 1000px) and (max-width: 1729px) {
+  @media (min-width: 1300px) and (max-width: 1639px) {
     div {
       background-image: url('../images/kitten-sitting.png');
     }
   }
 
-  @media (max-width: 999px) {
+  @media (max-width: 1299px) {
     div {
       background-image: url('../images/kitten-curled.png');
     }

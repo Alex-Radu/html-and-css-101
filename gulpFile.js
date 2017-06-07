@@ -52,6 +52,9 @@ gulp.task('templates', function() {
 });
 
 gulp.task('css', function() {
+  gulp.src('./styles/*.css')
+    .pipe(gulp.dest('./dest/styles'));
+
   return gulp.src('./styles/styles.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./dest/styles/'))
@@ -62,7 +65,12 @@ gulp.task('images', function() {
     .pipe(gulp.dest('./dest/images'));
 })
 
-gulp.task('default', ['templates', 'css', 'images'], function() {
+gulp.task('js', function() {
+  return gulp.src('./js/*.js')
+    .pipe(gulp.dest('./dest/js'));
+})
+
+gulp.task('default', ['templates', 'css', 'js', 'images'], function() {
 
   browserSync.init({
     server: {
@@ -71,5 +79,5 @@ gulp.task('default', ['templates', 'css', 'images'], function() {
     }
   });
 
-  gulp.watch(['styles/*.scss', 'pages/*.mustache'], ['templates', 'css', 'images']).on('change', browserSync.reload);
+  gulp.watch(['styles/*.scss', 'pages/*.mustache', './*.mustache'], ['templates', 'css', 'js', 'images']).on('change', browserSync.reload);
 });
