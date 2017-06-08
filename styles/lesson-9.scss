@@ -8,40 +8,71 @@
     }
 
     #checkbox2 {
-      // position: absolute;
-      // left: -99999px;
-
-      // or
-
-      visibility: hidden;
+      display: none;
 
       &:checked + label:after {
         visibility: visible;
       }
     }
 
-    label[for="checkbox2"] {
+    #checkbox3 {
+      display: none;
+
+      &:checked + label:after {
+        left: 41px;
+        background-color: rgb(114, 191, 118);
+      }
+    }
+
+    .the-nice-one {
       position: relative;
 
-      &::before {
-        content: '';
-        border: 2px solid rgb(114, 148, 191);
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        margin-right: 8px;
+      &:nth-of-type(2n) {
+        &::before {
+          content: '';
+          border: 2px solid rgb(114, 148, 191);
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          margin-right: 8px;
+        }
+
+        &::after {
+          content: '';
+          display: inline-block;
+          width: 12px;
+          height: 12px;
+          background: rgb(180, 114, 191);
+          position: absolute;
+          left: 4px;
+          top: 12px;
+          visibility: hidden;
+        }
       }
 
-      &::after {
-        content: '';
-        display: inline-block;
-        width: 12px;
-        height: 12px;
-        background: rgb(180, 114, 191);
-        position: absolute;
-        left: 4px;
-        top: 12px;
-        visibility: hidden;
+      &:nth-of-type(2n+1) {
+        &::before {
+          content: 'on off';
+          display: inline-block;
+          border: 2px solid rgb(114, 148, 191);
+          padding: 0 5px;
+          font-size: 26px;
+          text-align: center;
+          width: 70px;
+          margin-right: 8px;
+        }
+
+        &::after {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          width: 34px;
+          height: 22px;
+          background-color: rgb(250, 128, 114);
+          left: 6px;
+          top: 8px;
+          transition: left 0.3s;
+        }
       }
     }
   }

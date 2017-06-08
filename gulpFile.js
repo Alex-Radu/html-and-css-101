@@ -11,10 +11,10 @@ let templateData = [];
 function structureTemplateData(err, fileContent, fileName, next) {
   fileName = fileName.replace('pages/', '').replace('.mustache', '');
 
-  let lessonNoRaw = fileName.match(/lesson(-\d+)+/)[0];
-  let lessonNameRaw = fileName.substring(lessonNoRaw.length + 1);
-  let lessonNo = lessonNoRaw.replace(/-/g, ' ').charAt(0).toUpperCase() + lessonNoRaw.slice(1);
-  let lessonName = lessonNameRaw.replace(/-/g, ' ').charAt(0).toUpperCase() + lessonNameRaw.slice(1);
+  let lessonNoRaw = fileName.match(/lesson(-\d+)+/)[0].replace(/-/g, ' ');
+  let lessonNameRaw = fileName.substring(lessonNoRaw.length + 1).replace(/-/g, ' ');
+  let lessonNo = lessonNoRaw.charAt(0).toUpperCase() + lessonNoRaw.slice(1);
+  let lessonName = lessonNameRaw.charAt(0).toUpperCase() + lessonNameRaw.slice(1);
 
   templateData.push({
     pageTitle: lessonNo + ': ' + lessonName,
